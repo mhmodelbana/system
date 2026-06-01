@@ -251,19 +251,16 @@ body {
     z-index: 100;
     box-shadow: var(--shadow-xl);
     overflow: hidden;
-}
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-.sidebar-header {
-    padding: 30px 25px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.sidebar-header i {
-    font-size: 50px;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
+    .mobile-menu-btn {
+        display: none;
+        background: var(--lighter-color);
+        color: var(--primary-dark);
+    }
+    .mobile-menu-btn i {
+        font-size: 18px;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 15px;
@@ -1133,9 +1130,214 @@ tbody tr:last-child td {
 .apply-discount-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
 /* Small responsive tweak */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 260px;
+    }
+
+    .main-content {
+        margin-right: 260px;
+    }
+
+    .top-bar {
+        padding: 18px 28px;
+    }
+
+    .sidebar-header h2 {
+        font-size: 18px;
+    }
+
+    .nav-item {
+        padding: 14px 18px;
+    }
+
+    .cards-grid {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-right: 220px;
+    }
+
+    .top-bar {
+        padding: 16px 22px;
+    }
+
+    .sidebar-header {
+        padding: 24px 20px;
+    }
+
+    .nav-item span {
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 768px) {
-    .cart-discount { flex-direction: column; align-items: stretch; }
-    .apply-discount-btn { width: 100%; }
+    #main-screen {
+        display: block;
+    }
+
+    .sidebar {
+        display: none;
+        position: relative;
+        width: 100%;
+        height: auto;
+        right: 0;
+        top: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .sidebar.sidebar-open {
+        display: flex;
+    }
+
+    .sidebar-header,
+    .sidebar-footer,
+    .sidebar-nav {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .sidebar-header {
+        text-align: right;
+        background: transparent;
+        border-bottom: none;
+    }
+
+    .sidebar-nav {
+        padding-top: 0;
+    }
+
+    .nav-item {
+        padding: 14px 16px;
+        margin-bottom: 6px;
+        border-radius: 14px;
+    }
+
+    .main-content {
+        margin: 0;
+        min-height: auto;
+    }
+
+    .top-bar {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+
+    #content-area {
+        padding: 20px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-container {
+        border-radius: 16px;
+    }
+
+    .table-container table {
+        min-width: 700px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .pos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pos-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pos-products,
+    .pos-cart {
+        padding: 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cart-item-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cart-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        max-width: 95%;
+    }
+
+    .toast-container {
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        top: 16px;
+    }
+
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar-nav {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .sidebar-header,
+    .sidebar-footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .nav-item {
+        padding: 12px 14px;
+    }
+
+    .top-bar {
+        padding: 14px 16px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .table-container table {
+        min-width: 560px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .cart-summary-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
 }
 
 .cart-empty {

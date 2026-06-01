@@ -417,6 +417,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // إغلاق النافذة المنبثقة عند النقر على زر الإغلاق
     document.querySelector('.modal-close').addEventListener('click', closeModal);
 
+    // زر القائمة على الجوال
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const sidebar = document.querySelector('.sidebar');
+    if (mobileMenuBtn && sidebar) {
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('sidebar-open')) {
+                if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    sidebar.classList.remove('sidebar-open');
+                }
+            }
+        });
+    }
+
     // تحميل الصفحة الافتراضية
     if (Auth.checkAuth()) {
         loadPage('dashboard');
