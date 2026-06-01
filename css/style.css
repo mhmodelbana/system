@@ -1194,8 +1194,12 @@ tbody tr:last-child td {
         border-radius: 0;
     }
 
-    .sidebar.sidebar-open {
+    .sidebar.active {
         display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: inline-flex;
     }
 
     .sidebar-header,

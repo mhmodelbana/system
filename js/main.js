@@ -422,13 +422,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
     if (mobileMenuBtn && sidebar) {
         mobileMenuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
+            sidebar.classList.toggle('active');
         });
 
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 && sidebar.classList.contains('sidebar-open')) {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
                 if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                    sidebar.classList.remove('sidebar-open');
+                    sidebar.classList.remove('active');
                 }
             }
         });
